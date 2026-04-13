@@ -1,0 +1,19 @@
+this this is the SSMS code 
+where you have to create a table and must to insert the data in powershell 
+
+
+CREATE DATABASE CompanyDB;
+GO
+USE CompanyDB;
+CREATE TABLE employees (
+    emp_id INT,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
+);
+
+and the end just run this command -
+
+SELECT * FROM employees; 
+
+ 
