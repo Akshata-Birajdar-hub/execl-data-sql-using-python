@@ -1,0 +1,37 @@
+powershell code 
+step 1 - print this code first in your powershell 
+>>>Python 
+import pandas as pd
+df = pd.DataFrame({
+    "emp_id": [101,102,103],
+    "emp_name": ["Ravi","Priya","Arjun"],
+    "department": ["HR","IT","Finance"],
+    "salary": [30000,50000,45000]
+})
+df.to_excel(r"C:\Users\Admin\Desktop\data.xlsx", index=False)
+print("New Excel created")
+
+step 2 --
+open another tab of poweshell and print this code 
+
+import pandas as pd
+import time
+from sqlalchemy import create_engine
+print("Waiting 15 seconds...")
+time.sleep(15)
+# Read Excel from Desktop
+df = pd.read_excel(r"C:\Users\Admin\Desktop\data.xlsx", engine="openpyxl")
+# SQL Server connection
+server = "EWS"   # change if needed
+database = "CompanyDB"
+engine = create_engine(
+    f"mssql+pyodbc://@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server"
+)
+# Insert data into SQL
+df.to_sql("employees", con=engine, if_exists="append", index=False)
+print("Data inserted successfully!")
+
+
+NOTE - 
+this is a code of poweshell only 
+
